@@ -17,6 +17,7 @@ export default defineConfig({
         "transition-timing-function": "cubic-bezier(0.4, 0, 0.2, 1)",
       }),
     ],
+    ["font-8bit", { "font-family": "pixeloidmono" }],
   ],
   presets: [presetWind()],
 });

@@ -7,4 +7,5 @@ export default defineNuxtConfig({
   devtools: {
     enabled: true,
   },
+  css: ["~/layouts/global.css"],
 });

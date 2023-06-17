@@ -1,0 +1,87 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model pokemon {
+  id              Int               @id @default(autoincrement())
+  dex_number      Int
+  name            String
+  game            Games
+  primary_type    PokemonTypes
+  secondary_type  PokemonTypes?
+  pokemon_sprites pokemon_sprites[]
+}
+
+model game {
+  id         Int         @id @default(autoincrement())
+  game       Games
+  generation Generations
+}
+
+model move {
+  id         Int          @id @default(autoincrement())
+  name       String
+  pokemon_id Int
+  game       Games
+  method     Methods
+  type       PokemonTypes
+  power      Int
+  accuracy   Int
+}
+
+model pokemon_sprites {
+  id         Int     @id @default(autoincrement())
+  dex_entry  pokemon @relation(fields: [pokemon_id], references: [id])
+  pokemon_id Int
+  sprite     String  @default("red-blue/normal/ditto.png")
+}
+
+enum Games {
+  FireRed
+  LeafGreen
+}
+
+enum PokemonTypes {
+  Normal
+  Fire
+  Water
+  Grass
+  Electric
+  Ice
+  Fighting
+  Poison
+  Ground
+  Flying
+  Psychic
+  Bug
+  Rock
+  Ghost
+  Dragon
+  Dark
+  Steel
+  Fairy
+}
+
+enum Generations {
+  Gen1
+  Gen2
+  Gen3
+  Gen4
+  Gen5
+  Gen6
+  Gen7
+  Gen8
+  Gen9
+}
+
+enum Methods {
+  LevelUp
+  Egg
+  Tutor
+  TM
+}

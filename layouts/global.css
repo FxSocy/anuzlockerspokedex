@@ -1,0 +1,14 @@
+@font-face {
+  font-family: "pixeloidmono";
+  src: url("~/assets/PixeloidMono-d94EV.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "pixeloidsans";
+  src: url("~/assets/PixeloidSans-mLxMm.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "pixeloidbold";
+  src: url("~/assets/PixeloidSansBold-PKnYd.ttf") format("truetype");
+}
