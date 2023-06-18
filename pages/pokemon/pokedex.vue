@@ -1,6 +1,6 @@
 <template>
   <div class="w-full">
-    <div class="w-full flex justify-center py-5">
+    <div class="w-full flex justify-center pb-5">
       <div
         class="h-20 w-100 bg-red-500 rounded-2 flex items-center border border-5 border-red-800"
       >
@@ -9,7 +9,7 @@
         </h2>
       </div>
     </div>
-    <div class="flex flex-wrap justify-between w-full">
+    <div class="flex flex-wrap w-full">
       <div
         class="w-33% h-70 flex flex-wrap justify-center"
         v-for="dexEntry in fullDex"
@@ -17,7 +17,7 @@
         <pokemon-card
           :name="dexEntry.name"
           :dexNo="dexEntry.dex_number"
-          :url="dexEntry.pokemon_sprites[0].sprite"
+          :url="dexEntry.pokemon_sprites[0]?.sprite"
           :primaryType="dexEntry.primary_type"
           :secondaryType="dexEntry.secondary_type"
         />

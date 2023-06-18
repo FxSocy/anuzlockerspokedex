@@ -1,6 +1,6 @@
 <template>
   <div
-    class="font-mono w-20 h-8 border-2 text-center rounded-2"
+    class="font-mono w-30% h-12% border-2 text-center rounded-2"
     :class="getTypeColor(pokemon_type)"
   >
     {{ props.pokemon_type }}
@@ -39,7 +39,7 @@ function getTypeColor(pokemonType: PokemonTypes | null) {
     case PokemonTypes.Psychic:
       return "bg-purple-300";
     case PokemonTypes.Bug:
-      return "bg-green-300";
+      return "bg-lime-300";
     case PokemonTypes.Rock:
       return "bg-yellow-400";
     case PokemonTypes.Ghost:

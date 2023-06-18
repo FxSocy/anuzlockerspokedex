@@ -42,8 +42,35 @@ model pokemon_sprites {
 }
 
 enum Games {
+  Red
+  Blue
+  Yellow
   FireRed
   LeafGreen
+  Ruby
+  Sapphire
+  Emerald
+  Diamond
+  Pearl
+  Platinum
+  HeartGold
+  SoulSilver
+  Black
+  White
+  Black2
+  White2
+  X
+  Y
+  OmegaRuby
+  AlphaSapphire
+  Sun
+  Moon
+  UltraSun
+  UltraMoon
+  Sword
+  Shield
+  Scarlet
+  Violet
 }
 
 enum PokemonTypes {

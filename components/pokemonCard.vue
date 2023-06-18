@@ -2,10 +2,21 @@
   <div
     class="bg-gray-300 w-full flex flex-wrap justify-center shadow-lg m-2 rounded-10 border-3 border-lime-700"
   >
-    <div class="w-80% -mb-8 mt-2 font-8bit text-left text-size-xs">
+    <div class="w-60% -mb-8 mt-2 font-8bit text-left text-size-xs">
       {{ "Dex No." + props.dexNo }}
     </div>
-    <img class="w-45 h-45 m-2" :src="createUrl(props.url)" :alt="props.name" />
+    <img
+      v-if="url?.includes('scarlet-violet')"
+      class="w-45 h-45 mb-10 -mt-4 mx-4"
+      :src="createUrl(props.url)"
+      :alt="props.name"
+    />
+    <img
+      v-else
+      class="w-45 h-45 m-2"
+      :src="createUrl(props.url)"
+      :alt="props.name"
+    />
     <div class="text-center font-8bit font-bold text-2xl w-full -mt-4">
       {{ props.name }}
     </div>
@@ -30,7 +41,7 @@ const props = defineProps<{
 }>();
 
 function createUrl(urlPostfix: string | undefined) {
-  if (typeof urlPostfix === "undefined") {
+  if (typeof urlPostfix === "undefined" || urlPostfix === "") {
     return "https://img.pokemondb.net/sprites/black-white/shiny/ditto.png";
   }
   const urlPrefix = "https://img.pokemondb.net/sprites/";
