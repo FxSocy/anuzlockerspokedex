@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   modules: ["@unocss/nuxt", "nuxt-icon", "@vueuse/nuxt", "@nuxt/image"],
   experimental: {
-    viewTransition: true,
+    viewTransition: false,
   },
   devtools: {
     enabled: true,
