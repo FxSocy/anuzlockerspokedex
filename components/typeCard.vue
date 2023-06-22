@@ -1,6 +1,6 @@
 <template>
   <div
-    class="font-mono w-30% h-12% border-2 text-center rounded-2"
+    class="font-mono w-40% h-12% border-2 text-center rounded-2 text-size-xs"
     :class="getTypeColor(pokemon_type)"
   >
     {{ props.pokemon_type }}

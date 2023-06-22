@@ -5,9 +5,6 @@ export default defineEventHandler(async (event) => {
         dex_number: "asc",
       },
     ],
-    include: {
-      pokemon_sprites: true,
-    },
   });
 
   return fullDex;

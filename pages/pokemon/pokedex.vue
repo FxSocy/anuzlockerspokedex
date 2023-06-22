@@ -9,15 +9,12 @@
         </h2>
       </div>
     </div>
-    <div class="flex flex-wrap w-full">
-      <div
-        class="w-33% h-70 flex flex-wrap justify-center"
-        v-for="dexEntry in fullDex"
-      >
+    <div class="grid grid-cols-4 justify-center w-full">
+      <div class="flex justify-center" v-for="dexEntry in fullDex">
         <pokemon-card
+          class="w-50 h-50"
           :name="dexEntry.name"
           :dexNo="dexEntry.dex_number"
-          :url="dexEntry.pokemon_sprites[0]?.sprite"
           :primaryType="dexEntry.primary_type"
           :secondaryType="dexEntry.secondary_type"
         />

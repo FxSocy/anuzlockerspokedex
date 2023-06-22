@@ -10,11 +10,12 @@ datasource db {
 model pokemon {
   id              Int               @id @default(autoincrement())
   dex_number      Int
-  name            String
+  name            String            @unique
   game            Games
   primary_type    PokemonTypes
   secondary_type  PokemonTypes?
-  pokemon_sprites pokemon_sprites[]
+  pokemon_alternate_forms pokemon_alternate_forms[]
+  pokemon_info_detailed   pokemon_info_detailed[]
 }
 
 model game {
@@ -24,21 +25,43 @@ model game {
 }
 
 model move {
-  id         Int          @id @default(autoincrement())
-  name       String
-  pokemon_id Int
-  game       Games
-  method     Methods
-  type       PokemonTypes
-  power      Int
-  accuracy   Int
+  id                Int          @id @default(autoincrement())
+  name              String
+  pokemon_id        Int
+  game              Games
+  method            Methods
+  type              PokemonTypes
+  power             Int
+  accuracy          Int
+  description       String
 }
 
-model pokemon_sprites {
-  id         Int     @id @default(autoincrement())
-  dex_entry  pokemon @relation(fields: [pokemon_id], references: [id])
-  pokemon_id Int
-  sprite     String  @default("red-blue/normal/ditto.png")
+model pokemon_info_detailed {
+  id                Int     @id @default(autoincrement())
+  dex_entry         pokemon @relation(fields: [pokemon_id], references: [id])
+  ability1          Abilities
+  ability2          Abilities?
+  hidden_ability    Abilities?
+  pokemon_id        Int
+  game              Games
+  height            Float
+  weight            Float
+  hp                Int
+  attack            Int
+  defense           Int
+  special_attack    Int
+  special_defense   Int
+  speed             Int
+  total             Int
+  description       String
+}
+
+model pokemon_alternate_forms {
+  id                Int     @id @default(autoincrement())
+  dex_entry         pokemon @relation(fields: [pokemon_id], references: [id])
+  pokemon_id        Int
+  form_type         FormTypes
+  sprite            String  @default("red-blue/normal/ditto.png")
 }
 
 enum Games {
@@ -111,4 +134,30 @@ enum Methods {
   Egg
   Tutor
   TM
+}
+
+enum FormTypes {
+  Mega
+  Gigantamax
+  Dynamax
+  Alolan
+  Galarian
+  Hisuian
+}
+
+enum Abilities {
+  Overgrow
+  Blaze
+  Torrent
+  ShieldDust
+  ShedSkin
+  CompoundEyes
+  TintedLens
+  RunAway
+  KeenEye
+  TangledFeet
+  Guts
+  Intimidate
+  Static
+  Chlorophyll
 }
